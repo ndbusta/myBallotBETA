@@ -46,7 +46,7 @@ def retrieveCandidateFEC_Presidential():
         print(f'Error: {response.status.code}')
         return None
 
-
+dist = input(str('What is your district? '))
 data = retrieveCandidateFEC()
 candidates = data.get('results', [])
 full_list = []
@@ -59,7 +59,7 @@ if candidates:
         district = candidate.get('district','N/A')
         office = candidate.get('office_full','N/A')
 
-        if district != '23':
+        if district != dist:
             continue
 
         candidateDict = {
